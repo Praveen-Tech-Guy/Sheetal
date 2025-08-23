@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Swad Restaurant - Sanquelim</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    :root{
+      --gold-1:#f6cf65; /* warm gold */
+      --gold-2:#f0b429; /* deeper gold */
+      --rose-1:#e5646e; /* accent */
+    }
+    body{font-family: 'Poppins', system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";}
+
+    /* Glass card */
+    .glass{background:rgba(255,255,255,.08); backdrop-filter: blur(8px);}  
+
+    /* Floating / parallax hero dishes */
+    .floaty{animation:float 6s ease-in-out infinite;}
+    .floaty:nth-child(2){animation-duration:7.5s}
+    .floaty:nth-child(3){animation-duration:9s}
+    @keyframes float{0%{transform:translateY(0)}50%{transform:translateY(-18px)}100%{transform:translateY(0)}}
+
+    /* Horizontal slider (scroll-snap) */
+    .snap-x{scroll-snap-type:x mandatory}
+    .snap-start{scroll-snap-align:start}
+
+    /* Rating stars */
+    .star{filter: drop-shadow(0 1px 1px rgba(0,0,0,.35)); cursor:pointer;}
+
+    /* CTA glow */
+    .glow{box-shadow:0 10px 30px rgba(240,180,41,.35)}
+
+    /* Subtle section dividers */
+    .divider{height:1px; background:linear-gradient(90deg, transparent, rgba(255,255,255,.15), transparent)}
+  </style>
+</head>
+<body class="bg-gradient-to-b from-black via-gray-900 to-black text-gray-100">
+  <!-- NAV -->
+  <nav class="fixed top-0 inset-x-0 z-50 bg-black bg-opacity-70 backdrop-blur-md border-b border-white border-opacity-10">
+    <div class="max-w-7xl mx-auto px-5 py-4 flex items-center justify-between">
+      <a href="#home" class="text-2xl font-extrabold tracking-wide"><span class="text-yellow-400">Sheetal</span> <span class="text-white">Restaurant</span></a>
+      <div class="hidden md:flex items-center space-x-8 text-sm uppercase tracking-wider">
+        <a href="#about" class="hover:text-yellow-300">About</a>
+        <a href="#menu" class="hover:text-yellow-300">Menu</a>
+        <a href="#gallery" class="hover:text-yellow-300">Gallery</a>
+        <a href="#contact" class="hover:text-yellow-300">Contact</a>
+        <a href="#order" class="px-4 py-2 rounded-lg font-semibold text-black bg-gradient-to-r from-yellow-400 to-yellow-600 glow hover:from-yellow-300 hover:to-yellow-500">Order</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <img src="https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=1800&auto=format&fit=crop" alt="Restaurant ambience" class="absolute inset-0 w-full h-full object-cover"/>
+    <div class="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90"></div>
+
+    <!-- Parallax / floating dishes -->
+    <img data-depth="0.07" src="plate.png" alt="floating plate" class="floaty absolute -left-6 md:left-10 top-24 w-40 md:w-56 opacity-90 pointer-events-none"/>
+    <img data-depth="0.1" src="biryani.png" alt="biryani bowl" class="floaty absolute right-6 md:right-16 top-32 w-44 md:w-64 rounded-2xl shadow-2xl pointer-events-none"/>
+    <img data-depth="0.06" src="tandoori.png" alt="tandoori platter" class="floaty absolute left-20 bottom-10 w-40 md:w-56 rounded-2xl shadow-2xl pointer-events-none"/>
+
+    <div class="relative z-10 max-w-3xl mx-auto text-center px-6">
+      <span class="inline-block mb-4 text-xs tracking-[0.2em] uppercase text-yellow-300">Sanquelim · North Goa</span>
+      <h1 class="text-4xl md:text-6xl font-extrabold leading-tight"><span class="bg-clip-text text-transparent bg-gradient-to-r from-yellow-200 via-yellow-400 to-yellow-600">Authentic Goan & Indian Delicacies</span></h1>
+      <p class="mt-6 text-lg text-gray-200">Where warm hospitality meets rich flavors. Dine-in, takeaway, and delivery.</p>
+      <div class="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+        <a href="#order" class="px-8 py-3 rounded-xl font-semibold text-black bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600 glow hover:scale-[1.02] transform transition">Order Now</a>
+        <a href="#menu" class="px-8 py-3 rounded-xl font-semibold border border-white/20 hover:border-yellow-400 hover:text-yellow-300 transition">View Menu</a>
+      </div>
+    </div>
+  </header>
+
+  <div class="divider my-10"></div>
+
+  <!-- ABOUT -->
+  <section id="about" class="px-6 py-16">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-10 items-center">
+      <div class="glass rounded-3xl p-8 border border-white/10">
+        <h2 class="text-3xl font-bold mb-4">Our Story</h2>
+        <p class="text-gray-300 leading-relaxed">At Swad, we celebrate Goa’s culinary heritage with time-honored recipes and fresh local produce. From aromatic biryanis to coastal seafood curries, every plate is crafted with care.</p>
+        <ul class="mt-6 grid grid-cols-2 gap-4 text-sm">
+          <li class="glass rounded-xl p-3 border border-white/10">Fresh Ingredients</li>
+          <li class="glass rounded-xl p-3 border border-white/10">Family Friendly</li>
+          <li class="glass rounded-xl p-3 border border-white/10">Takeaway & Delivery</li>
+          <li class="glass rounded-xl p-3 border border-white/10">Party Orders</li>
+        </ul>
+      </div>
+      <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop" alt="dining" class="rounded-3xl shadow-2xl"/>
+    </div>
+  </section>
+
+  <div class="divider my-10"></div>
+
+  <!-- ORDER / ACTION HUB -->
+  <section id="order" class="px-6 py-16">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+      <!-- Zomato -->
+      <a aria-label="Order on Zomato" href="https://www.zomato.com/goa/swad-restaurant-bicholim" target="_blank" class="glass rounded-2xl p-6 border border-white/10 hover:border-yellow-400 transition block">
+        <h3 class="text-xl font-bold">Order on Zomato</h3>
+        <p class="text-gray-300 text-sm mt-2">Fast delivery & takeout</p>
+        <div class="mt-4 inline-flex items-center px-5 py-2 rounded-lg bg-gradient-to-r from-rose-400 to-rose-600 text-white font-semibold">Go to Zomato →</div>
+      </a>
+      <!-- Swiggy (optional) -->
+      <a aria-label="Order on Swiggy" href="https://www.swiggy.com/" target="_blank" class="glass rounded-2xl p-6 border border-white/10 hover:border-yellow-400 transition block">
+        <h3 class="text-xl font-bold">Order on Swiggy</h3>
+        <p class="text-gray-300 text-sm mt-2">Alternate delivery partner</p>
+        <div class="mt-4 inline-flex items-center px-5 py-2 rounded-lg bg-gradient-to-r from-orange-300 to-orange-500 text-black font-semibold">Go to Swiggy →</div>
+      </a>
+      <!-- Direct contact -->
+      <div class="glass rounded-2xl p-6 border border-white/10">
+        <h3 class="text-xl font-bold mb-4">Connect with Us</h3>
+        <div class="flex flex-wrap gap-3">
+          <a href="https://wa.me/917448280923?text=Hello%20Swad%20Restaurant%2C%20I%20would%20like%20to%20order%20or%20make%20a%20reservation." target="_blank" class="px-4 py-2 rounded-lg bg-green-500 text-black font-semibold">WhatsApp</a>
+          <a href="tel:+917448280923" class="px-4 py-2 rounded-lg bg-gradient-to-r from-yellow-300 to-yellow-500 text-black font-semibold">Call</a>
+          <a href="mailto:swadrestaurant@gmail.com" class="px-4 py-2 rounded-lg bg-blue-500 text-white font-semibold">Email</a>
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Sanquelim%2C%20Goa" target="_blank" class="px-4 py-2 rounded-lg bg-purple-500 text-white font-semibold">Directions</a>
+        </div>
+        <p class="text-xs text-gray-400 mt-3">Order directly & save on commissions.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider my-10"></div>
+
+  <!-- SLIDABLE MENU (HORIZONTAL CAROUSEL) -->
+  <section id="menu" class="px-6 py-16">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-end justify-between mb-6">
+        <h2 class="text-3xl font-bold">Signature Menu</h2>
+        <div class="flex gap-3">
+          <button id="prevBtn" class="px-4 py-2 rounded-lg border border-white/20 hover:border-yellow-400">◀</button>
+          <button id="nextBtn" class="px-4 py-2 rounded-lg border border-white/20 hover:border-yellow-400">▶</button>
+        </div>
+      </div>
+      <div id="menuTrack" class="flex gap-6 overflow-x-auto snap-x pb-2">
+        <!-- Card template repeated -->
+        <article class="min-w-[280px] snap-start glass rounded-2xl border border-white/10 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1604908554027-0c94c0f64b67?q=80&w=800&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Chicken Biryani"/>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold">Chicken Biryani</h3>
+            <p class="text-gray-300 text-sm">Aromatic spices & tender chicken</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="font-bold text-yellow-300">₹250</span>
+              <a href="#order" class="text-sm px-3 py-1 rounded-md bg-gradient-to-r from-yellow-300 to-yellow-500 text-black">Order</a>
+            </div>
+          </div>
+        </article>
+        <article class="min-w-[280px] snap-start glass rounded-2xl border border-white/10 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1567175743169-a4f21aa2d36e?q=80&w=800&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Goan Fish Curry"/>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold">Goan Fish Curry</h3>
+            <p class="text-gray-300 text-sm">Kokum, coconut & spices</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="font-bold text-yellow-300">₹300</span>
+              <a href="#order" class="text-sm px-3 py-1 rounded-md bg-gradient-to-r from-yellow-300 to-yellow-500 text-black">Order</a>
+            </div>
+          </div>
+        </article>
+        <article class="min-w-[280px] snap-start glass rounded-2xl border border-white/10 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1612929633738-8fe44f7ec841?q=80&w=800&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Tandoori Platter"/>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold">Tandoori Platter</h3>
+            <p class="text-gray-300 text-sm">Smoky grilled goodness</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="font-bold text-yellow-300">₹450</span>
+              <a href="#order" class="text-sm px-3 py-1 rounded-md bg-gradient-to-r from-yellow-300 to-yellow-500 text-black">Order</a>
+            </div>
+          </div>
+        </article>
+        <article class="min-w-[280px] snap-start glass rounded-2xl border border-white/10 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1578916171728-46686eac8d58?q=80&w=800&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Paneer Tikka"/>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold">Paneer Tikka</h3>
+            <p class="text-gray-300 text-sm">Charred, juicy & flavorful</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="font-bold text-yellow-300">₹220</span>
+              <a href="#order" class="text-sm px-3 py-1 rounded-md bg-gradient-to-r from-yellow-300 to-yellow-500 text-black">Order</a>
+            </div>
+          </div>
+        </article>
+        <article class="min-w-[280px] snap-start glass rounded-2xl border border-white/10 overflow-hidden">
+          <img src="https://images.unsplash.com/photo-1625944528100-9bc54c6f1b3a?q=80&w=800&auto=format&fit=crop" class="h-48 w-full object-cover" alt="Butter Naan"/>
+          <div class="p-5">
+            <h3 class="text-xl font-semibold">Butter Naan</h3>
+            <p class="text-gray-300 text-sm">Soft & buttery</p>
+            <div class="mt-3 flex items-center justify-between">
+              <span class="font-bold text-yellow-300">₹60</span>
+              <a href="#order" class="text-sm px-3 py-1 rounded-md bg-gradient-to-r from-yellow-300 to-yellow-500 text-black">Order</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider my-10"></div>
+
+  <!-- GALLERY -->
+  <section id="gallery" class="px-6 pb-4">
+    <div class="max-w-7xl mx-auto">
+      <h2 class="text-3xl font-bold mb-6">Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <img src="https://images.unsplash.com/photo-1515003197210-e0cd71810b5f?q=80&w=800&auto=format&fit=crop" alt="dish" class="rounded-2xl"/>
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=800&auto=format&fit=crop" alt="ambience" class="rounded-2xl"/>
+        <img src="https://images.unsplash.com/photo-1604147706284-31b5b20b0726?q=80&w=800&auto=format&fit=crop" alt="thali" class="rounded-2xl"/>
+        <img src="https://images.unsplash.com/photo-1511690656952-34342bb7c2f2?q=80&w=800&auto=format&fit=crop" alt="tandoor" class="rounded-2xl"/>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider my-10"></div>
+
+  <!-- RATINGS -->
+  <section class="px-6 py-16">
+    <div class="max-w-4xl mx-auto glass rounded-3xl p-8 border border-white/10">
+      <div class="flex items-center justify-between">
+        <div>
+          <h3 class="text-2xl font-bold">Rate Your Experience</h3>
+          <p class="text-sm text-gray-300">Tap a star to rate. Your feedback helps us improve.</p>
+        </div>
+        <div id="ratingStars" class="flex gap-2 text-3xl" aria-label="Rate this restaurant">
+          <button class="star" data-v="1">⭐</button>
+          <button class="star" data-v="2">⭐</button>
+          <button class="star" data-v="3">⭐</button>
+          <button class="star" data-v="4">⭐</button>
+          <button class="star" data-v="5">⭐</button>
+        </div>
+      </div>
+      <p id="ratingMsg" class="mt-4 text-yellow-300 text-sm hidden">Thanks for rating! ⭐</p>
+    </div>
+  </section>
+
+  <div class="divider my-10"></div>
+
+  <!-- CONTACT -->
+  <section id="contact" class="px-6 py-16">
+    <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-8 items-start">
+      <div class="glass rounded-3xl p-8 border border-white/10">
+        <h2 class="text-3xl font-bold mb-4">Visit Us</h2>
+        <p class="text-gray-300">House No. 567/FF, Karapur, Sanquelim, North Goa</p>
+        <div class="mt-6 overflow-hidden rounded-2xl border border-white/10">
+          <iframe title="Google Map - Sheetal Restaurant" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3780.019099232977!2d73.9551!3d15.5649!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bbfc6d440000001%3A0x0!2sSanquelim!5e0!3m2!1sen!2sin!4v1702890000000" width="100%" height="320" style="border:0;" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="mt-4 flex flex-wrap gap-3">
+          <a href="https://www.google.com/maps/dir/?api=1&destination=Sanquelim%2C%20Goa" target="_blank" class="px-4 py-2 rounded-lg bg-gradient-to-r from-purple-400 to-purple-600">Open in Google Maps</a>
+        </div>
+      </div>
+      <div class="glass rounded-3xl p-8 border border-white/10">
+        <h2 class="text-3xl font-bold mb-4">Get in Touch</h2>
+        <div class="space-y-3">
+          <a href="https://wa.me/917028115061?text=Hello%20Sheetal%20Restaurant%2C%20I%20would%20like%20to%20order%20or%20make%20a%20reservation." target="_blank" class="block px-4 py-3 rounded-lg bg-green-500 text-black font-semibold">Chat on WhatsApp</a>
+          <a href="tel:+917448280923" class="block px-4 py-3 rounded-lg bg-gradient-to-r from-yellow-300 to-yellow-500 text-black font-semibold">Call: +91 7028115061</a>
+          <a href="mailto:swadrestaurant@gmail.com" class="block px-4 py-3 rounded-lg bg-blue-500 text-white font-semibold">Email Us</a>
+          <a href="https://www.zomato.com/goa/swad-restaurant-bicholim" target="_blank" class="block px-4 py-3 rounded-lg bg-gradient-to-r from-rose-400 to-rose-600 text-white font-semibold">Order on Zomato</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="px-6 py-10 text-center text-sm text-gray-400">
+    <p>&copy; 2025 Sheetal Restaurant. All rights reserved.</p>
+    <p class="mt-1">Design & prototype by Praveen · Made with Tailwind</p>
+  </footer>
+
+  <script>
+    // Parallax effect for hero floating elements
+    const hero = document.getElementById('home');
+    const floatEls = hero.querySelectorAll('[data-depth]');
+    hero.addEventListener('mousemove', (e)=>{
+      const rect = hero.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      floatEls.forEach(el=>{
+        const d = parseFloat(el.getAttribute('data-depth')) || 0.05;
+        el.style.transform = `translate(${x * d * 60}px, ${y * d * 60}px)`;
+      });
+    });
+
+    // Horizontal slider controls
+    const track = document.getElementById('menuTrack');
+    document.getElementById('prevBtn').addEventListener('click', ()=>{
+      track.scrollBy({left: -320, behavior: 'smooth'});
+    });
+    document.getElementById('nextBtn').addEventListener('click', ()=>{
+      track.scrollBy({left: 320, behavior: 'smooth'});
+    });
+
+    // Rating widget (local only)
+    const stars = Array.from(document.querySelectorAll('#ratingStars .star'));
+    const msg = document.getElementById('ratingMsg');
+    const saved = localStorage.getItem('swad_user_rating');
+    function paint(n){
+      stars.forEach((s,i)=>{ s.textContent = i < n ? '⭐' : '☆'; });
+    }
+    if(saved){ paint(parseInt(saved)); }
+    stars.forEach(s=>{
+      s.addEventListener('mouseenter', ()=> paint(parseInt(s.dataset.v)));
+      s.addEventListener('mouseleave', ()=> paint(parseInt(localStorage.getItem('swad_user_rating')||0)));
+      s.addEventListener('click', ()=>{
+        localStorage.setItem('swad_user_rating', s.dataset.v);
+        paint(parseInt(s.dataset.v));
+        msg.classList.remove('hidden');
+      });
+    });
+  </script>
+</body>
+</html>
